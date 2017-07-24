@@ -1,0 +1,30 @@
+name: KingTreasure
+main: eu.kingconquest.kingtreasure.Main
+load: POSTWORLD
+depend: [Vault]
+softdepend: []
+version: 0.1.0.1
+author: Thomas Lundqvist
+website: www.kingconquest.eu
+description: Random Treasure in a world.
+
+commands:
+  kingtreasure:
+    description: Main Commmand
+    aliases: [kt, treasure, ktreasure, kingtreasure]
+    permission: kingtreasure.basic
+    permission-message: Permission "kingtreasure.basic" required for this command
+    
+permissions:
+   kingtreasure.*:
+     default: op
+     description: Gives access to all the Commands.
+   kingtreasure.basic:
+     default: true
+     description: Gives access to basic commands
+     children:
+       #kingtreasure.basic.join: true
+       #kingtreasure.basic.leave: false
+       #kingtreasure.basic.teleport: true
+       #kingtreasure.basic.reward: true
+    

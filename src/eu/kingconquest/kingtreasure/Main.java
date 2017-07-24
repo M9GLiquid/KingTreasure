@@ -44,7 +44,15 @@ public class Main extends JavaPlugin implements Listener{
 		new Message(MessageType.CONSOLE, "&6|&2 Configs:");
 		YmlStorage.output();
 		new Message(MessageType.CONSOLE, "&6|=======================================|");
+		////////////////////////////////////////////////////////
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(),
+				new Runnable(){
+					@Override
+					public void run(){
 
+					}
+				}, 0, 0);
+		////////////////////////////////////////////////////////
 		setListeners();
 
 	}

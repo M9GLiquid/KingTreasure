@@ -1,0 +1,40 @@
+# ========================================================
+# | Author: Thomas (Liquid) Lundqvist
+# | Server IP: play.kingconquest.eu
+# | Website: www.kingconquest.eu
+#========================================================
+# |                                                      Information
+# | ActiveWorlds:
+# |  <World>: 								What worlds you want the plugin to be running on (name of World).
+# |    General:
+# |     <RespawnDelay>: 			Delay before you are respawned (seconds).
+# |     <TeleportDelay>: 				Delay before you are teleported (seconds).
+# |   Income:
+# |     <CapCash>: 						Cash you are rewarded for capturing (instant and directly to the player).
+# |    <IncomeDelay>: 				Time before Capital Rewards are devided out (minutes).
+# |     <TownBaseValue>: 			Base value of Capturing a complete Objective.
+# |     <VillageBaseValue>: 		Base value of Capturing a Beacon.
+# |    Combat:
+# |     <CaptureRate>:					Rate of which a player captures an objective (seconds)
+# |     <CaptureDistance>:			Amount of Blocks away from the outpost you can be to capture it (X|Z).
+# |     <CaptureAboveHeight>:	Amount of Blocks above the outpost you can be to capture it (Y).
+# |     <CaptureBelowHeight>:	Amount of Blocks below the outpost you can be to capture it (Y).
+# ========================================================
+Database:
+  Backend: FlatFile
+  MySql: #Not Implemented
+    Host: localhost
+    User: root
+    Password: root
+    Database: Conquest
+    Port: 21
+  SqlLite: #Not Implemented
+  FlatFile:
+    AutoSaveInterval: 5 #Minutes
+ActiveWorlds:
+  world:
+    General:
+      Debug: false
+  Sezty:
+    General:
+      Debug: false

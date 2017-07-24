@@ -3,14 +3,10 @@ package eu.kingconquest.kingtreasure.storage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -192,13 +188,12 @@ public class YmlStorage extends YamlConfiguration{
 		}
 	}
 
-	@SuppressWarnings("unused")
 	public static void load(){
 		registerFiles();
 		loadLanguage();
-		loadDefault();
+		//loadDefault();
 		getWorlds().forEach(aWorld ->{
-			World world = Bukkit.getWorld(aWorld);
+			//World world = Bukkit.getWorld(aWorld);
 			headerMsg = "&6| - &aLoaded:";
 			//saveKingdoms(world);
 		});
@@ -312,7 +307,7 @@ public class YmlStorage extends YamlConfiguration{
 						(20 * config.getLong("ActiveWorlds." + world.getName() + ".General.TeleportDelay")));
 
 				bmap.put("DebugDynmapMarkers",
-						config.getBoolean("ActiveWorlds." + world.getName() + ".Debug.DynmapMarkers"));
+						config.getBoolean("ActiveWorlds." + world.getName() + ".General.Debug"));
 
 				doubles.put(world.getUID(), dmap);
 				longs.put(world.getUID(), lmap);
@@ -456,26 +451,6 @@ public class YmlStorage extends YamlConfiguration{
 	}
 
 	public static void registerFiles(){
-		new YmlStorage(null, "Config.yml", "Config.yml");
 		new YmlStorage(null, "Language.yml", "Language.yml");
-		new YmlStorage("Data", "Kingdoms.yml");
-		new YmlStorage("Data", "Towns.yml");
-		new YmlStorage("Data", "Villages.yml");
-
-		try (Stream<Path> paths = Files.list(
-				Paths.get(Main.getInstance().getDataFolder() + File.separator + "Data" + File.separator + "Users"))){
-			paths.filter(Files::isRegularFile).forEach(filePath ->{
-				new YmlStorage("Data" + File.separator + "Users", filePath.getFileName().toString());
-			});
-			paths.close();
-		}catch (IOException e){}
-
-		try (Stream<Path> paths = Files.list(
-				Paths.get(Main.getInstance().getDataFolder() + File.separator + "Data" + File.separator + "Rewards"))){
-			paths.filter(Files::isRegularFile).forEach(filePath ->{
-				new YmlStorage("Data" + File.separator + "Rewards", filePath.getFileName().toString());
-			});
-			paths.close();
-		}catch (IOException e){}
 	}
 }
